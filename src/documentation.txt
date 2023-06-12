@@ -1,0 +1,59 @@
+Importing Dependencies:
+
+The code begins with importing the necessary dependencies: useEffect and useState from the React library, axios for making HTTP requests, and the CSS file App.css.
+Function Component:
+
+The code defines a functional component named App. Functional components are the building blocks of React applications.
+State Variables:
+
+The component defines several state variables using the useState hook. These variables are used to manage the application state.
+The id, name, and address variables store the values entered by the user in the input fields.
+The data variable stores the array of comments retrieved from the server.
+The isEditing variable determines whether the form is in edit mode or not.
+The editId variable stores the ID of the comment being edited.
+The showTable variable controls the visibility of the table displaying the comments.
+Get Data:
+
+The getData function is responsible for making an HTTP GET request to the server to retrieve the comments data.
+It uses the axios library to send the request to the specified URL (http://localhost:3300/comments).
+Upon successful retrieval, the response data is stored in the data state variable, and showTable is set to true to display the table.
+Any errors that occur during the request are logged to the console.
+useEffect Hook:
+
+The useEffect hook is used to trigger the getData function when the component mounts (i.e., on initial render). This ensures that the comments data is fetched and displayed when the component is first rendered.
+Post Data:
+
+The postData function is responsible for making an HTTP POST request to the server to add a new comment.
+It uses the axios library to send the request to the specified URL (http://localhost:3300/comments), along with the comment data (id, name, and address).
+Upon successful addition, the response data (updated comments array) is stored in the data state variable, and the input fields (id, name, and address) are cleared.
+Any errors that occur during the request are logged to the console.
+Delete Data:
+
+The deleteData function is responsible for making an HTTP DELETE request to the server to remove a comment.
+It takes the comment ID as a parameter and constructs the URL accordingly (http://localhost:3300/comments/{id}).
+Upon successful deletion, the response data (updated comments array) is stored in the data state variable.
+Any errors that occur during the request are logged to the console.
+Update Data:
+
+The updateData function is responsible for making an HTTP PUT request to the server to update a comment.
+It takes the comment ID as a parameter and constructs the URL accordingly (http://localhost:3300/comments/{id}).
+It also sends the updated comment data (id, name, and address) in the request body.
+Upon successful update, the response data (updated comments array) is stored in the data state variable, the input fields are cleared, and isEditing is set to false.
+Any errors that occur during the request are logged to the console.
+Handle Edit:
+
+The handleEdit function is called when the "Edit" button is clicked for a specific comment.
+It takes the comment ID, name, and address as parameters and updates the corresponding state variables (id, name, and address).
+It also sets isEditing to true and updates editId with the comment ID.
+Toggle Table:
+
+The toggleTable function is responsible for toggling the visibility of the comments table.
+It is called when the "Hide Data" or "Get Data" button is clicked.
+It sets showTable to the opposite of its current value.
+Form and JSX Markup:
+
+The code returns JSX markup representing the form and table components.
+The form allows users to enter their ID, name, and address, and submit or update the comments using appropriate buttons.
+Depending on the state of showTable, it renders a button to either show or hide the comments table.
+The table is conditionally rendered based on the value of showTable.
+It displays the comments data in a tabular format, with options to edit or delete each comment.
